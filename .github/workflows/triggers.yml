@@ -1,0 +1,20 @@
+name: Trigger Identification Demo
+run-name: Trigger Identification Demo
+# Define the three specific triggers
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  pull_request:
+    branches:
+      - aprendiendo-github-actions
+  workflow_dispatch: # Allows manual triggering from the Actions tab
+
+jobs:
+  display-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet and Identify Trigger
+        run: |
+          echo "Hello World!"
+          echo "This workflow was activated by the event: ${{ github.event_name }}"
