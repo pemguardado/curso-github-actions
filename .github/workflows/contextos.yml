@@ -9,6 +9,9 @@ jobs:
   check-branch:
     runs-on: ubuntu-latest
     steps:
+      - name: Show current branch
+        run: echo "Running on branch ${{ github.ref_name }}"
+        
       - name: If Main
         if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "Desplegando en la rama main"
