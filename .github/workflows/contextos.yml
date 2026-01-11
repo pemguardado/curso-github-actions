@@ -9,6 +9,8 @@ jobs:
   check-branch:
     runs-on: ubuntu-latest
     steps:
+      - name: paso inicial
+        run: echo "Ejecutando primer paso obligatorio"
       - name: If Main
         if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "Desplegando en la rama main"
