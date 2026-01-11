@@ -1,20 +1,9 @@
 name: Contexto
-run-name: ¡Estoy aprendiendo a usar Contextos :D paso 4!
-
-on:
-  push:
-  workflow_dispatch: # This enables the "Run workflow" button in the Actions tab
-
+run-name: ¡Estoy aprendiendo a usar Contextos!
+on: push
 jobs:
-  check-branch:
+  check-main:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
-      - name: paso inicial
-        run: echo "Ejecutando primer paso obligatorio"
-      - name: If Main
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: echo "Desplegando en la rama main"
-
-      - name: Else (Other branches)
-        if: ${{ github.ref != 'refs/heads/main' }}
-        run: echo "Rama actual: ${{ github.ref_name }}"
+      - run: echo "Desplegando en la rama $GITHUB_REF"
